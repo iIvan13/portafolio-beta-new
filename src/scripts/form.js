@@ -59,6 +59,7 @@ function initializeForm() {
         Object.keys(formData).forEach(key => formData[key] = '');
     };
 
+    if (!form) return;
     form.addEventListener('input', ({ target: { name, value } }) => {
         if (name) formData[name] = value;
     });
