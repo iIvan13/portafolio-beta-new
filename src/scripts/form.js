@@ -16,11 +16,9 @@ function initializeForm() {
     const isFormValid = () => ['name', 'email', 'subject', 'message']
         .every(field => formData[field]?.trim() !== '');
 
-    const sendMail = async (e) => {
+    const sendMail = async () => {
         if (!isFormValid() || isLoading) return;
         toggleLoading(true);
-
-        e.preventDefault();
 
         try {
             const response = await fetch('/api/sendMail.json', {
@@ -64,5 +62,9 @@ function initializeForm() {
     form.addEventListener('input', ({ target: { name, value } }) => {
         if (name) formData[name] = value;
     });
-    form.addEventListener('submit', sendMail);
+    
+    form.addEventListener('submit', e =>{
+        e.preventDefault();
+        sendMail();
+    });
 }
