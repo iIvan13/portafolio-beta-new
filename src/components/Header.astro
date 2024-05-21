@@ -63,8 +63,27 @@ import Hamburger from "./Hamburger.astro";
         color: var(--blue-600);
     }
 
+    .link-color.active::after{
+        content: "";
+        height: 1px;
+        margin-top: 2px;
+        background: var(--blue-600);
+        display: block;
+        border-radius: 100px;
+        animation: animate .3s linear forwards;
+    }
+
     .link-color.active span{
         color: var(--text-basic);
+    }
+
+    @keyframes animate {
+        0% {
+            width: 0;
+        }
+        100% {
+            width: 100%;
+        }
     }
 
     @media (max-width: 868px) {
