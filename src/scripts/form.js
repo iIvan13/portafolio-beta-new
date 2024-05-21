@@ -62,8 +62,8 @@ function initializeForm() {
     form.addEventListener('input', ({ target: { name, value } }) => {
         if (name) formData[name] = value;
     });
-    
-    form.addEventListener('submit', e =>{
+
+    sendMailButton.addEventListener('click', e =>{
         e.preventDefault();
         sendMail();
     });
