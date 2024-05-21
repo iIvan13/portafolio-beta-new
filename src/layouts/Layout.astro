@@ -21,18 +21,6 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>Ivan - {title}</title>
 		<ViewTransitions/>
-
-		<meta name="description" content="¡Bienvenido a mi portafolio digital! Descubre mi pasión por el diseño y el desarrollo web a través de una colección diversa de proyectos creativos. Desde elegantes diseños hasta experiencias interactivas, explora cómo transformo ideas en realidad digital. ¡Déjate inspirar y conoce mi enfoque único para cada desafío!">
-
-		<meta name="theme-color" content="#090a20">
-		<meta name="MobileOptimized" content="width">
-		<meta name="HandheldFriendly" content="true">
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-		<link rel="shortcut icon" type="image/png" href="./img/ivan-logo.svg">
-		<link rel="apple-touch-icon" href="./img/ivan-logo.svg">
-		<link rel="apple-touch-startup-image" href="./img/ivan-logo.svg">
-		<link rel="manifest" href="./manifest.json">
 	</head>
 	<body>
 		<Header/>
@@ -40,8 +28,6 @@ const { title } = Astro.props;
 			<slot />
 		</main>
 		<Footer/>
-
-		<script src="../scripts/initServiceWorker.js"></script>
 	</body>
 </html>
 
