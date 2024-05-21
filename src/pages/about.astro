@@ -1,0 +1,166 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+
+const skills = [
+    "HTML5",
+    "CSS3",
+    "JavaScript",
+    "React",
+    "Astro",
+    "Nextjs",
+    "TypeScript",
+    "Python",
+    "Git/GitHub",
+    "API",
+    "RESTful API",
+    'Zustand',
+    "Figma",
+    "Tailwind",
+    "Node.js",
+    "PWAs",
+    "Command Line",
+]
+---
+
+<Layout title="About me">
+    <header>
+        <span id="greeting"></span>
+        <h1>
+            I'm Ivan!, i am a self-taught front-end developer based in Lima, Peru.
+        </h1>
+    </header>
+
+    <section>
+        <article class="section-text">
+            <p>
+                My main experience is focused on creating responsive websites, building them from  scratch and tuning them into modern and friendly web experiences using <span class="blue-text" translate="no">Astro</span> and <span class="blue-text" translate="no">Next.js</span>.
+            </p>
+
+            <p>
+                Throughout my career, I have  developed skills in handling frameworks such as <span class="blue-text" translate="no">Astro</span> and <span class="blue-text" translate="no">Next.js</span>, as well as mastering <span class="blue-text" translate="no">React</span>, <span class="blue-text" translate="no">Javascript</span> and <span class="blue-text" translate="no">Typescript</span>. My commitment to the constant pursuit of learning drives me to keep myself updated with the latest technologies, which allows me to offer innovative quality solutions in every project I work on.
+            </p>
+        </article>
+    </section>
+
+    <section>
+        <article>
+            <h2 class="skills-h2">
+                <span class="blue-text">#&nbsp</span>Skills
+            </h2>
+
+            <div class="skills">
+                {
+                    skills.map((skill) => (
+                        <div class="skill">
+                            <span>{skill}</span>
+                        </div>
+                    ))
+                }
+            </div>
+        </article>
+    </section>
+</Layout>
+
+<style>
+    header {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    h1 { 
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    #greeting {
+        color: var(--blue-600);
+        font-size: 30px;
+        font-weight: 500;
+    }
+
+    .skills-h2 {
+        font-size: 20px;
+    }
+
+    article{
+        width: 100%;
+        margin-top: 2rem;
+    }
+
+    .section-text {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        max-width: 700px;
+    }
+
+    .skills{
+        font-size: 1rem;
+        margin-top: 1.25rem;
+        color: rgb(187, 182, 207);
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .skill{
+        position: relative;
+        border-radius: 3px;
+        padding: 4px 8px;
+        background: rgba(62, 62, 92, 0.44);
+    }
+
+    .skill::before{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: inherit;
+        filter: blur(40px);
+        z-index: -1;
+    }
+
+    @media (max-width: 868px) {
+        article {
+        flex-direction: column;
+        gap: 3rem;
+        }
+
+        .section-text {
+        width: 100%;
+        margin-top: 2rem;
+        }
+    }
+</style>
+
+<script>
+    const today = new Date();
+    const currentHour = today.getHours();
+
+    function greeting() {
+        if (currentHour >= 5 && currentHour < 12) {
+            return "Good morning!";
+        } else if (currentHour >= 12 && currentHour < 18) {
+            return "Good afternoon!";
+        } else if (currentHour >= 18 && currentHour < 24) {
+            return "Good evening!";
+        }else{
+            return "Hey there!";
+        }
+    }
+
+    function greet() {
+            const greetingContainer = document.getElementById("greeting");
+            if (greetingContainer) {
+                greetingContainer.innerText = greeting() || "Hey there!";
+            }
+        }
+
+    document.addEventListener("DOMContentLoaded", greet);
+    greet();
+    document.addEventListener('astro:after-swap', greet);
+</script>

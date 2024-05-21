@@ -1,0 +1,143 @@
+<form id="contactForm">
+    <span class="responsive-inputs">
+      <input
+        type="text"
+        id="name"
+        name="name"
+        required
+        placeholder="Name"
+      />
+
+      <input
+        type="email"
+        id="email"
+        name="email"
+        required
+        placeholder="Email"
+      />
+    </span>
+
+    <input
+      type="text"
+      id="subject"
+      name="subject"
+      required
+      placeholder="Subject"
+    />
+
+    <textarea
+      id="message"
+      name="message"
+      rows="4"
+      required
+      placeholder="Message"></textarea>
+
+    <button
+      type="submit"
+      class="submit-buttom"
+      id="send-email">
+        <span class="load">
+            <svg class="svg-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.56079 10.6418L6.35394 3.94971L8.25402 5.84979C11.7312 3.6588 16.3814 4.07764 19.41 7.1063L17.9958 8.52052C15.7536 6.27827 12.3686 5.87519 9.71551 7.31128L11.2529 8.84869L4.56079 10.6418Z" fill="currentColor" /><path d="M19.4392 13.3581L17.646 20.0502L15.7459 18.1501C12.2688 20.3411 7.61857 19.9223 4.58991 16.8936L6.00413 15.4794C8.24638 17.7217 11.6313 18.1247 14.2844 16.6887L12.747 15.1512L19.4392 13.3581Z" fill="currentColor" /></svg>
+        </span>
+        <span class="text-send">
+            Send <img src="./icons/send.svg" alt="send img icon" class="img-icon-mini">
+        </span>
+    </button>
+</form>
+
+
+<script src="../scripts/form.js"></script>
+
+
+<style>
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 1.3rem;
+        width: 600px;
+        max-width: 100%;
+    }
+
+    input,
+    textarea {
+        background: #0b0c1caa;
+        width: 100%;
+        border: 2px solid #455168c9;
+        padding: 6px 10px;
+        border-radius: 4px;
+        color: var(--blue-100);
+        outline: 0;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+        color: rgb(134, 134, 134);
+    }
+
+    input:focus,
+    textarea:focus {
+        border-color: #0b0c1c00;
+        outline-width: 1.7px;
+        outline-color: #0c49ffe1;
+        outline-style: solid;
+    }
+
+    .responsive-inputs {
+        display: flex;
+        gap: 1.3rem;
+        width: 100%;
+    }
+
+    .submit-buttom {
+        max-width: max-content;
+        padding: 8px 12px;
+        background: #00000000;
+        color: var(--blue-100);
+        border: solid 2px var(--blue-600);
+        font-weight: 600;
+        cursor: pointer;
+        border-radius: 3px;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .load{
+        width: 17.45px;
+        height: 17.45px;
+        display: none;
+    }
+
+    .submit-buttom.loading .text-send {
+        display: none;
+    }
+
+    .submit-buttom.loading .load {
+        display: block;
+    }
+
+    .submit-buttom.loading .svg-icon {
+        animation: spin 2s linear infinite;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(-360deg);
+        }
+    }
+
+    @media (max-width: 868px) {
+        .responsive-inputs {
+            flex-direction: column;
+        }
+
+        form {
+            width: 100%;
+        }
+    }
+</style>

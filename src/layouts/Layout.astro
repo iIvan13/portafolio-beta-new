@@ -1,0 +1,184 @@
+---
+import ViewTransitions from 'astro/components/ViewTransitions.astro';
+import '@fontsource-variable/fira-code';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+		
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="./icon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Ivan - {title}</title>
+		<ViewTransitions/>
+	</head>
+	<body>
+		<Header/>
+		<main>
+			<slot />
+		</main>
+		<Footer/>
+	</body>
+</html>
+
+<style is:global>
+	/* Colores */
+	:root {
+		/* Azules */
+		--blue-50: #e8f2ff;
+		--blue-100: #d5eeff;
+		--blue-200: #b3deff;
+		--blue-300: #85c5ff;
+		--blue-400: #569dff;
+		--blue-500: #2f76ff;
+		--blue-600: #0040ff;
+		--blue-700: #003cff;
+		--blue-800: #0638cd;
+		--blue-900: #10379f;
+		--blue-950: #0a1e5c;
+		--blue-1000: #090a20;
+
+		/* Fondos */
+		--bg-dark: #000000;
+		--bg-gradient: linear-gradient(to bottom, var(--blue-1000) 6%, var(--bg-dark) 94%);
+
+		/* Texto */
+		--text-basic: #aeaebe;
+	}
+
+	/* Reset */
+	*, *::before, *::after {
+		padding: 0;
+		margin: 0;
+		box-sizing: border-box;
+		font-family: "Fira Code Variable", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	}
+
+	/* HTML */
+	html {
+		scroll-behavior: smooth;
+	}
+
+	/* Body */
+	body {
+		width: 100%;
+		min-height: 100vh;
+		background-image: var(--bg-gradient);
+		color: var(--text-basic);
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
+	/* Contenido principal */
+	main {
+		width: 100%;
+		margin: 5rem 0;
+		padding: 0 13%;
+	}
+
+	/* Enlaces */
+	a {
+		text-decoration: none;
+		color: var(--text-basic);
+		transition: color 0.3s;
+		font-weight: 400;
+	}
+
+	a:hover {
+		color: var(--blue-600);
+	}
+
+	/* Imágenes */
+	img {
+		vertical-align: middle;
+	}
+
+	/* Encabezados */
+	h1, h2, h3, h4, h5, h6 {
+		color: var(--blue-100);
+	}
+
+	h1 {
+		font-size: 34px;
+		font-weight: 600;
+	}
+
+	h2 {
+		font-size: 22px;
+	}
+
+	h3 {
+		font-size: 19px;
+	}
+
+	h4 {
+		font-size: 16px;
+		font-weight: 600;
+	}
+
+	/* Lista */
+	li {
+		list-style: none;
+		font-weight: 400;
+	}
+
+	/* Área de texto */
+	textarea {
+		resize: none;
+	}
+
+	/* Texto azul */
+	.blue-text {
+		color: var(--blue-600);
+		font-weight: 400;
+	}
+
+	/* Imagen de icono */
+	.img-icon-mini {
+		width: 16px;
+		height: 16px;
+	}
+
+	.img-icon-small{
+		width: 18px;
+		height: 18px;
+	}
+
+	.img-icon-medium{
+		width: 20px;
+		height: 20px;
+	}
+
+	.img-icon{
+		width: 22px;
+		height: 22px;
+		
+	}
+
+	/* Media Query */
+	@media (max-width: 868px) {
+		main {
+			padding: 0 5%;
+			margin: 8rem 0 3rem 0;
+		}
+
+		h1 {
+			font-size: 30px;
+		}
+
+		.section-lines {
+			display: none;
+		}
+	}
+</style>

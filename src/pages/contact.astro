@@ -1,0 +1,93 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Form from "../components/Form.astro";
+---
+
+<Layout title="Contacts">
+  <h1>
+    <span class="blue-text">/&nbsp</span>contacts
+  </h1>
+
+  <section>
+    <article>
+      <div class="contact-info">
+        <p>
+          I’m interested in freelance opportunities. However, if you have other
+          request or question, don’t hesitate to contact me.
+        </p>
+      </div>
+      <div class="contact-form">
+        <div class="message-here">
+          <h3>Message me here</h3>
+          <ul>
+            <li>
+              <img src="./icons/whatsapp.svg" alt="whatsapp" class="img-icon"> +51-921-853-713
+            </li>
+            <li>
+              <img src="./icons/mail.svg" alt="email" class="img-icon"> ivandev2oo6@gmail.com
+            </li>
+          </ul>
+        </div>
+
+        <Form/>
+      </div>
+    </article>
+  </section>
+</Layout>
+
+<style>
+  h1 {
+    margin-bottom: 2rem;
+  }
+
+  p {
+    margin-bottom: 4rem;
+    max-width: 600px;
+  }
+
+  section {
+    width: 100%;
+  }
+
+  .contact-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+  }
+
+  .message-here {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .contact-form {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  @media (max-width: 868px) {
+    h1 {
+      margin-bottom: 1rem;
+    }
+
+    p {
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+  }
+</style>
