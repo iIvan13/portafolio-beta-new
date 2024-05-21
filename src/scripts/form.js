@@ -17,10 +17,10 @@ function initializeForm() {
         .every(field => formData[field]?.trim() !== '');
 
     const sendMail = async (e) => {
-        e.preventDefault();
         if (!isFormValid() || isLoading) return;
-
         toggleLoading(true);
+
+        e.preventDefault();
 
         try {
             const response = await fetch('/api/sendMail.json', {
