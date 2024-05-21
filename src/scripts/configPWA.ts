@@ -7,7 +7,8 @@ export const manifest: Partial<ManifestOptions> = {
         "Este es mi portafolio, creado con Astro PWA Starter, una plantilla de Astro para construir sitios web estáticos robustos.",
     background_color: '#090a20',
     theme_color: '#090a20',
-    display: 'minimal-ui',
+    display: 'standalone',
+    orientation: 'portrait',
     icons: [
         {
             src: './public/img/icon_1024.png',
