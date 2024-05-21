@@ -1,14 +1,9 @@
-document.addEventListener('DOMContentLoaded', () => {
-    initializeForm();
-});
+initializeForm();
+document.addEventListener('astro:after-swap', initializeForm);
 
 function initializeForm() {
     const form = document.querySelector('form');
     const sendMailButton = document.querySelector('button');
-    if (!form || !sendMailButton) {
-        console.error('Form or sendMailButton not found in the DOM');
-        return;
-    }
 
     let isLoading = false;
     const formData = {};
@@ -16,7 +11,8 @@ function initializeForm() {
     const isFormValid = () => ['name', 'email', 'subject', 'message']
         .every(field => formData[field]?.trim() !== '');
 
-    const sendMail = async () => {
+    const sendMail = async (e) => {
+        e.preventDefault();
         if (!isFormValid() || isLoading) return;
         toggleLoading(true);
 
@@ -29,14 +25,18 @@ function initializeForm() {
                     to: ['todelanoivan13@gmail.com'],
                     subject: formData.subject,
                     html: `
-                        <h1>Name: ${formData.name}</h1>
+                        <h1>Nombre: ${formData.name}</h1>
                         <h3>E-mail: ${formData.email}</h3>
-                        <strong>Subject: ${formData.subject}</strong>
-                        <p>Message: ${formData.message}</p>
+                        <strong>Asunto: ${formData.subject}</strong>
+                        <p>Mensaje: ${formData.message}</p>
                     `,
                     text: formData.message,
                 })
             });
+
+            if (!response.ok) {
+                throw new Error('Error en la solicitud');
+            }
 
             const data = await response.json();
             console.log(data);
@@ -63,8 +63,5 @@ function initializeForm() {
         if (name) formData[name] = value;
     });
 
-    sendMailButton.addEventListener('click', e =>{
-        e.preventDefault();
-        sendMail();
-    });
+    form.addEventListener('submit', sendMail);
 }
