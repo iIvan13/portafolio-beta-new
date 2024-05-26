@@ -10,7 +10,7 @@ export default defineConfig({
   vite:{
     plugins:[
       VitePWA({
-        registerType: 'autoUpdate',
+        injectRegister: 'auto',
         manifest,
         workbox:{
           globDirectory: 'dist',
