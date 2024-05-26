@@ -3,6 +3,7 @@ import ViewTransitions from 'astro/components/ViewTransitions.astro';
 import '@fontsource-variable/fira-code';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import Canvas from '../components/Canvas.astro';
 		
 interface Props {
 	title: string;
@@ -120,6 +121,8 @@ const { title } = Astro.props;
 			<slot />
 		</main>
 		<Footer/>
+
+		<Canvas/>
 	</body>
 </html>
 
@@ -257,6 +260,7 @@ const { title } = Astro.props;
 		height: 22px;
 		
 	}
+
 
 	/* Media Query */
 	@media (max-width: 868px) {
